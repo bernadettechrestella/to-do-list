@@ -30,20 +30,20 @@ const ItemListPage = () => {
           <div className='flex justify-between'>
             <div className='flex gap-[19px] items-center'>
               <Link to='/'>
-                <IoIosArrowBack size={32}/>
+                <IoIosArrowBack size={32} data-cy="todo-back-button"/>
               </Link>
-              <p className='font-bold text-4xl text-black'>{title}</p>
-              <LuPencil size={24} className='text-gray'/>
+              <p data-cy="todo-title" className='font-bold text-4xl text-black'>{title}</p>
+              <LuPencil size={24} className='text-gray' data-cy="todo-title-edit-button"/>
             </div>
-            <ButtonTambah />
+            <ButtonTambah data-cy="todo-add-button"/>
           </div>
           {!todoItems || todoItems.length === 0 &&
-            <div className='pl-[230px] pt-[103px]'>
+            <div className='pl-[230px] pt-[103px]' data-cy="todo-empty-state">
               <img src={newListImg} alt="/"/>
             </div>
           }
           {todoItems && todoItems.length > 0 &&
-            <div className='mt-[48px]'>
+            <div className='mt-[48px]' data-cy="todo-item">
               {todoItems.map((item) => (
                 <CardList
                   key={item.id}
