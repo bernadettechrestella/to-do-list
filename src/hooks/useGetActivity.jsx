@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { deleteActivity, getActivities } from "../services/activity.services";
+import { createActivity, deleteActivity, getActivities } from "../services/activity.services";
 
 export const useGetActivity = () => {
   const [activities, setActivities] = useState([])
@@ -16,5 +16,17 @@ export const useGetActivity = () => {
     })
   }
 
-  return [activities, setActivities, handleDelete];
+  const handleCreateActivity = (title, email) => {
+    const data = {
+      title: title || 'New Activity',
+      email: email || 'bernadettechrestella@gmail.com',
+    };
+  
+    createActivity(data.title, data.email, (data) => {
+      setActivities([...activities, data]);
+      console.log(data)
+    });
+  };
+
+  return [activities, setActivities, handleDelete, handleCreateActivity];
 }
