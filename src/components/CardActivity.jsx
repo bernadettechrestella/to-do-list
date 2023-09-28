@@ -19,11 +19,11 @@ const CardActivity = (props) => {
     <div>
         <div className='rounded-2xl cursor-default h-[234px] w-[235px] shadow-xl pt-[22px] pb-[25px] px-[27px] bg-white'>
             <div className='flex flex-col'>
-                <h1 className='text-lg font-semibold' onClick={handleCardClick}>{title}</h1>
+                <h1 data-cy="activity-item-title" className='text-lg font-semibold' onClick={handleCardClick}>{title}</h1>
                 <div className=''>
                     <div className='flex justify-between items-center'>
-                        <p className='text-sm font-medium text-gray'>{formattedDate}</p>
-                        <HiOutlineTrash className='text-gray' size={24} onClick={() => handleClick(id)}/>
+                        <p data-cy="activity-item-date" className='text-sm font-medium text-gray'>{formattedDate}</p>
+                        <HiOutlineTrash data-cy="activity-item-delete-button" className='text-gray' size={24} onClick={() => handleClick(id)}/>
                     </div>
                 </div>
             </div>
