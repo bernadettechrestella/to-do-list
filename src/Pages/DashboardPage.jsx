@@ -64,7 +64,7 @@ const DashboardPage = () => {
                   title={activity.title}
                   created_at={activity.created_at}
                   handleDeletePopup={() => handleDeletePopup(activity.id, activity.title)}
-                  handleDelete={handleDelete}
+                  handleDelete={() => handleDelete}
                   handleCardClick={() => handleCardClick(activity.id)}/>
               ))}
             </div>
